@@ -6,8 +6,15 @@
 #         self.right = right
 class Solution:
     def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        '''
+        Case 1 the val is greater than any other - just create a new one to left
+        Case 2 the val is in between 
+        Case 3 the val is at the bottom - beccomes the new leaf node
+        '''
+        
         self.val = val
         return self.dfs(root)
+    
     def dfs(self, node):
         if not node:
             return TreeNode(self.val)
