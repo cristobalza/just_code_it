@@ -22,13 +22,10 @@ class Solution:
     def bst_search(self, node, low, high) :
         if not node:
             return True
-        
         if node.val <= low or node.val >= high:
             return False
-        
         l = self.bst_search(node.left, low, node.val)
         r = self.bst_search(node.right, node.val, high)
-        
         return l and r
     
     def counting(self, node):
