@@ -24,8 +24,8 @@ class Solution:
             return True
         if node.val <= low or node.val >= high:
             return False
-        l = self.bst_search(node.left, low, node.val)
-        r = self.bst_search(node.right, node.val, high)
+        l = self.bst_search(node.left, low=low, high=node.val)
+        r = self.bst_search(node.right, low=node.val, high=high)
         return l and r
     
     def counting(self, node):
