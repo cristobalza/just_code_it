@@ -3,6 +3,7 @@ class Solution:
         self.winners = set()
         self.losers2count = collections.defaultdict(int)
         self.graph = collections.defaultdict(list)
+        
         for w, l in matches:
             self.graph[w].append(l)
             
