@@ -9,7 +9,7 @@ class Solution:
                    
         
         '''
-        res = self.helper(x,abs(n))
+        res = self.helper(x,abs(n)) if x != 1 else 1
         return res if n >= 0 else 1/res
         
     def helper(self, x, n):
