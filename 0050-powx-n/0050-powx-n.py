@@ -17,9 +17,7 @@ class Solution:
             return 1
         if n == 1:
             return x
-        if n % 2 == 0:
-            return self.helper((x*x), n // 2)
-        else:
-            return x * self.helper(x, n - 1)
+        return self.helper((x*x), n // 2) if n % 2 == 0 else x * self.helper(x, n - 1)
+      
             
         
