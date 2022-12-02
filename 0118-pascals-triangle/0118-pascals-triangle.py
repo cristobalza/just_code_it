@@ -3,8 +3,11 @@ class Solution:
         res = []
         dp = [1]
         while len(res) < numRows:
+            if len(res) == numRows - 1:
+                res.append(dp)
+                break
             prev = dp # prev row
-            dp = [1] * (len(prev)+1) # new
+            dp = [1] * (len(prev)+1) # new row
             for i in range(len(prev) + 1):
                 if i == 0 or i == len(prev):
                     continue
