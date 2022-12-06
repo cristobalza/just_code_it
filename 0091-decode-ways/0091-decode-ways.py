@@ -1,17 +1,18 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
+        n = len(s)
         
-        size = len(s)
+        dp = [0]*(n+1)
+        dp[n] = 1
         
-        @cache
-        def backtrack(i, cnt):
-            if i >= size:
-                return 0
-            if (s[i] == "0") or (int(s[i:i+cnt]) > 26):
-                return 0
-            if i + cnt == size:
-                return 1
-
-            return backtrack(i + cnt, 1) + backtrack(i + cnt, 2)
-
-        return backtrack(0, 1) + backtrack(0, 2)
+        for i in range(n - 1, -1, -1):
+            if s[i] == '0':
+                continue
+            if i + 1 <= n:
+                dp[i] += dp[i + 1]
+                
+            if i + 2 <= n and int(s[i:i+2]) <= 26:
+                dp[i] += dp[i + 2]
+        
+        return dp[0]
+        
