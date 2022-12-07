@@ -25,9 +25,10 @@ class Solution:
             for fwd in range(back, n):
                 # print(f"fwd: {s[fwd]}")
                 # print(f"back: {s[back]}")
-                if s[fwd] == s[back] and ( fwd - back + 1 <= 2 or dp[back + 1][fwd - 1] is True):
-                    dp[back][fwd] = True
-                    count += 1
+                if s[fwd] == s[back] :
+                    if (back + 1 < n and fwd - 1 >= 0 and dp[back + 1][fwd - 1] is True) or ( fwd - back + 1 <= 2):
+                        dp[back][fwd] = True
+                        count += 1
         # print(dp)
         return count
         
