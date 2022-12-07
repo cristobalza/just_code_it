@@ -15,7 +15,7 @@ class Solution:
                 # print(f"fwd: {s[fwd]}")
                 # print(f"back: {s[back]}")
                 if s[fwd] == s[back] :
-                    if (back + 1 < n and fwd - 1 >= 0 and dp[back + 1][fwd - 1] is True) or ( fwd - back == 1):
+                    if (back + 1 < n and fwd - 1 >= 0 and dp[back + 1][fwd - 1] is True) or ( fwd - back + 1 <= 2):
                         dp[back][fwd] = True
                         word = s[back:fwd+1]
                         if len(word) > len(res):
