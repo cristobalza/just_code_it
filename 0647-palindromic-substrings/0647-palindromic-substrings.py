@@ -10,10 +10,11 @@ class Solution:
         return count 
         
         '''
-        if len(s) == 1:
-            return 1
         
         n = len(s)
+        if n == 1:
+            return 1
+        
         dp = [[False]*n for _ in range(n)]
         
         for i in range(n):
@@ -22,9 +23,11 @@ class Solution:
         count = 0
         for back in range(n - 1, -1, -1):
             for fwd in range(back, n):
-                if s[fwd] == s[back] and ( 3 > fwd - back + 1  or dp[back + 1][fwd - 1] is True):
+                # print(f"fwd: {s[fwd]}")
+                # print(f"back: {s[back]}")
+                if s[fwd] == s[back] and ( fwd - back + 1 <= 2 or dp[back + 1][fwd - 1] is True):
                     dp[back][fwd] = True
                     count += 1
-        print(dp)
+        # print(dp)
         return count
         
