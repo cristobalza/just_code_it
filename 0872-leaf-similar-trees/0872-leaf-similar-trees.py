@@ -20,4 +20,3 @@ class Solution:
         self.dfs(node.right, subset)
         return subset
         
-        
