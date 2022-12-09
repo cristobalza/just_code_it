@@ -3,12 +3,12 @@ class Solution:
         n =len(nums)
         if n == 1:
             return True 
-        dp= [0]*n
-        dp[0] =nums[0]
+        prev =nums[0]
         
         for i in range(1, n):
-            if dp[i-1] == 0:
+            curr=nums[i]
+            if prev == 0:
                 return False
-            dp[i]= max(dp[i-1] - 1, nums[i])
+            curr, prev =prev, max(prev - 1, curr) 
             
-        return dp[-1] > 0 or dp[-2] > 0
+        return prev >= 1 or curr >= 0
