@@ -5,18 +5,17 @@ class Solution:
         for node, e in enumerate(graph):
             self.g[node].extend(e)
         
-        print(self.g)
         self.res = []
         self.backtrack(0, [0])
         return self.res
     
     def backtrack(self, node, subset):
-        # solution
-        if not self.g[node]:
-            if node == self.n -1 :
-                self.res.append(subset[::])
-            return
-        elif  node == self.n -1:
+
+        # if not self.g[node]:
+        #     if node == self.n -1 :
+        #         self.res.append(subset[::])
+        #     return
+        if  node == self.n -1:
             self.res.append(subset[::])
             return
         
