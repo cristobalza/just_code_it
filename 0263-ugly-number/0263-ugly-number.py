@@ -9,5 +9,6 @@ class Solution:
         
         for divisor in [2, 3, 5]:
             n = helper(n, divisor)
+            if n == 1: break
         return n == 1
         
