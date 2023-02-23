@@ -16,8 +16,8 @@ class Solution:
             return self.dfs(node.right)
         if node.val > self.high:
             return self.dfs(node.left)
-        root = TreeNode(node.val)
-        root.left = self.dfs(node.left)
-        root.right = self.dfs(node.right)
-        return root
+        # root = TreeNode(node.val)
+        node.left = self.dfs(node.left)
+        node.right = self.dfs(node.right)
+        return node
         
