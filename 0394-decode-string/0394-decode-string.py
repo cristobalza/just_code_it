@@ -14,4 +14,4 @@ class Solution:
                     k = stack.pop() + k
                 
                 stack.append(int(k) * substring)
-        return "".join(stack)
+        return "".join(stack) if stack and (stack[0] !='[' and not stack[0].isdigit()) else ""
