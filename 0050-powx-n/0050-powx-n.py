@@ -7,5 +7,6 @@ class Solution:
             if x in memo: return memo[x]
             memo[x] = helper(x*x, n // 2) if n % 2 == 0 else x * helper(x, n-1)
             return memo[x]
-        return helper(x, n) if n > 0 else 1 / helper(x, abs(n))
+        res = helper(x, abs(n))
+        return res if n > 0 else 1 / res
     
