@@ -12,10 +12,5 @@ class Solution:
                 curr.next, list1, curr = list1, list1.next, list1
             else:
                 curr.next, list2, curr = list2, list2.next, list2
-                
-        if not list1:
-            curr.next = list2
-        else:
-            curr.next = list1
-        
+        curr.next = list1 if list1 else list2
         return dummy.next
