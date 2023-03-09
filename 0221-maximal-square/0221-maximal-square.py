@@ -17,11 +17,11 @@ class Solution:
         dp = [[0]*(n+1) for _ in range(m+1)]
         max_side = 0
         
-        for r in range(m):
-            for c in range(n):
-                if matrix[r][c] == '1':
-                    dp[r+1][c+1] = min(dp[r][c], dp[r+1][c], dp[r][c+1]) + 1 
-                    max_side = max(max_side, dp[r+1][c+1])
-                
+        for r in range(1,m+1):
+            for c in range(1,n+1):
+                if matrix[r-1][c-1] == '1':
+                    dp[r][c] = min(dp[r-1][c-1], dp[r-1][c], dp[r][c-1]) + 1 
+                    max_side = max(max_side, dp[r][c])
+        print(dp)
         return max_side * max_side
                 
