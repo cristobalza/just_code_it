@@ -3,15 +3,11 @@ class Solution:
         n, stack = len(intervals), []
         if n == 1: return intervals
         intervals.sort(key= lambda x : x[0])
-        prev = intervals[0]
-        stack.append(prev)
+        stack.append(intervals[0])
         for i in range(1, n):
-            if prev[1] < intervals[i][0]:
+            if stack[-1][1] < intervals[i][0]:
                 stack.append(intervals[i])
-                prev = intervals[i]
             else:
-                stack.pop()
-                new_inter = [min(prev[0], intervals[i][0]), max(intervals[i][1], prev[1])]
-                stack.append(new_inter)
-                prev = new_inter
+                prev = stack.pop()
+                stack.append([min(prev[0], intervals[i][0]), max(prev[1], intervals[i][1])])
         return stack
