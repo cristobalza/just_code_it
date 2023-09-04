@@ -1,7 +1,14 @@
 # Write your MySQL query statement below
-select e.employee_id, (case when e.employee_id % 2 != 0 and e.name not like 'M%' then e.salary
-                            else 0
-                      END)
-                            as bonus
-from Employees e
-order by e.employee_id;
+SELECT
+    employee_id
+    , bonus
+FROM (SELECT
+    employee_id
+    , CASE 
+        WHEN name NOT LIKE 'M%' AND MOD(employee_id, 2) != 0 THEN salary
+        ELSE 0
+        END AS bonus
+FROM Employees) AS tbl
+ORDER BY 
+    employee_id ASC
+;
