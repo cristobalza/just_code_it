@@ -1,4 +1,5 @@
-# Write your MySQL query statement below
-SELECT patient_id, patient_name, conditions
-FROM Patients
-WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
+import pandas as pd
+
+def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
+    return patients[patients['conditions'].str.match(r'(DIAB1|.* DIAB1)')]
+    
