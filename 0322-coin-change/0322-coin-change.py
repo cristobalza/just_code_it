@@ -1,9 +1,12 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        dp = [float('inf')] * (amount + 1)
-        dp[0] = 0
-        for i in range(1, amount + 1):
-            for c in coins:
-                if c <= i:
-                    dp[i] = min(1+ dp[i- c], dp[i])
-        return dp[-1] if dp[-1] != float('inf') else -1
+        memo = [float('inf')] * (amount + 1)
+        memo[0] = 0
+        for i in range(1, amount+1):
+            for coin in coins:
+                if i - coin >= 0: # conitnue searching
+                    memo[i] = min(memo[i], memo[i - coin] + 1)
+                    # coin = 4
+                    # i = 7
+                    # memo[7] = 1 + memo[7-4]
+        return memo[amount] if memo[amount] != float('inf') else -1
