@@ -7,8 +7,10 @@ class Solution:
         res = []
         maxheap = []
         counter_mapping = collections.Counter(nums)
-        for num, count in counter_mapping.items():
-            heapq.heappush(maxheap, (-count, num))
+        # for num, count in counter_mapping.items():
+        #     heapq.heappush(maxheap, (-count, num))
+        maxheap = [(-count, num) for num, count in counter_mapping.items()]
+        heapq.heapify(maxheap)
         while k > 0 and maxheap:
             _,  num = heapq.heappop(maxheap)
             res.append(num)
