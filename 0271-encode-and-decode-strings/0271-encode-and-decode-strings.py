@@ -2,15 +2,10 @@ class Codec:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string.
         """
-        '''
-        ['dog, 'banana', 'orange', 'apple']
-        '6?banana3?dog'
-        '''
-        res = ""
-        for _str in strs:
-            res += f"{len(_str)}?{_str}"
+        res = ''
+        for s in strs:
+            res += f"{len(s)}?{s}"
         return res
-            
         
 
     def decode(self, s: str) -> List[str]:
@@ -21,9 +16,9 @@ class Codec:
         while i < len(s):
             j = i
             while j < len(s) and s[j] != '?':
-                j+=1
-            size = int(s[i:j])
-            res.append(s[j+1:j+1+size])
+                j += 1
+            size = int(s[i:j]) 
+            res.append(s[j+1:j+size+1])
             i = j+1+size
         return res
         
