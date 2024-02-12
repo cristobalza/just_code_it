@@ -10,9 +10,9 @@ class Solution:
             if matrix[mid][0] <= target <= matrix[mid][n - 1]:
                 find_row = mid
                 break
-            elif matrix[mid][0] > target:
+            elif matrix[mid][0] >= target:
                 r = mid - 1
-            elif matrix[mid][n - 1] < target:
+            elif matrix[mid][n - 1] <= target:
                 l = mid + 1
     
         if find_row == -1:
