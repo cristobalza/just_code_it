@@ -22,12 +22,19 @@ class Solution:
         # print(arr)
         
         l, r = 0, n - 1
-        while l <= r:
+        # while l <= r:
+        #     mid = (l + r) // 2
+        #     if arr[mid] <= target:
+        #         l = mid + 1
+        #     else:
+        #         r = mid - 1
+        
+        while l < r:
             mid = (l + r) // 2
-            if arr[mid] <= target:
+            if arr[mid] < target:
                 l = mid + 1
             else:
-                r = mid - 1
+                r = mid
         
         return True if arr[r] == target else False
         
